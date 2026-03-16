@@ -1,0 +1,31 @@
+{
+  "info": {
+    "_postman_id": "05fd3e3a-adb4-45ec-8224-db7de6694a05",
+    "name": "Quinto Andar",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38870702"
+  },
+  "item": [
+    {
+      "name": "home",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://www.quintoandar.com.br/",
+          "protocol": "https",
+          "host": [
+            "www",
+            "quintoandar",
+            "com",
+            "br"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
