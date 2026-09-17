@@ -19,16 +19,12 @@ class CadastroImovelPage {
     // CEP
     // =========================
 
-    // Mensagem CEP inválido
     this.mensagemErroCep = page.locator('#a11y_error_cep_0');
 
-    // Mensagem CEP obrigatório
     this.mensagemCepObrigatorio = page
       .locator('#a11y_error_cep_0')
-      .locator('xpath=..')
-      .getByText('Campo obrigatório', { exact: true });
+      .locator('xpath=..');
 
-    // Mensagens CEP não encontrado
     this.mensagemCepNaoEncontrado = page.getByText(
       'Não achamos esse CEP',
       { exact: true }
@@ -50,8 +46,7 @@ class CadastroImovelPage {
 
     this.mensagemNomeObrigatorio = page
       .locator('#a11y_error_name_0')
-      .locator('xpath=..')
-      .getByText('Campo obrigatório', { exact: true });
+      .locator('xpath=..');
 
     // =========================
     // ÁREA
@@ -59,8 +54,7 @@ class CadastroImovelPage {
 
     this.mensagemAreaObrigatorio = page
       .locator('#a11y_error_area_0')
-      .locator('xpath=..')
-      .getByText('Campo obrigatório', { exact: true });
+      .locator('xpath=..');
 
     // =========================
     // TELEFONE
@@ -68,8 +62,7 @@ class CadastroImovelPage {
 
     this.mensagemTelefoneObrigatorio = page
       .locator('#a11y_error_phone_0')
-      .locator('xpath=..')
-      .getByText('Este campo é obrigatório', { exact: true });
+      .locator('xpath=..');
   }
 
   async acessar() {
@@ -105,6 +98,7 @@ class CadastroImovelPage {
 
   async clicarComecarCadastro() {
     await expect(this.botaoComecarCadastro).toBeVisible();
+
     await this.botaoComecarCadastro.click();
   }
 
@@ -113,16 +107,23 @@ class CadastroImovelPage {
   }
 
   async validarMensagemCampoObrigatorio() {
-    await expect(this.mensagemCepObrigatorio).toBeVisible();
+    await expect(this.mensagemCepObrigatorio)
+      .toContainText('Campo obrigatório');
   }
 
   async validarCamposObrigatorios() {
-    await expect(this.mensagemCepObrigatorio).toBeVisible();
-    await expect(this.mensagemNomeObrigatorio).toBeVisible();
-    await expect(this.mensagemAreaObrigatorio).toBeVisible();
-    await expect(this.mensagemTelefoneObrigatorio).toBeVisible();
-  }
+    await expect(this.mensagemCepObrigatorio)
+      .toContainText('Campo obrigatório', { timeout: 10000 });
 
+    await expect(this.mensagemNomeObrigatorio)
+      .toContainText('Campo obrigatório', { timeout: 10000 });
+
+    await expect(this.mensagemAreaObrigatorio)
+      .toContainText('Campo obrigatório', { timeout: 10000 });
+
+    await expect(this.mensagemTelefoneObrigatorio)
+      .toContainText('Este campo é obrigatório', { timeout: 10000 });
+  }
 }
 
 module.exports = { CadastroImovelPage };

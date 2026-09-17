@@ -2,8 +2,8 @@
 
 Testes no site [Quinto Andar](https://www.quintoandar.com.br/)
 
-- Performance
-- Automatizados
+- Performance (k6)
+- Automatizados (Playwright, Cypress, Robot Framework)
 
 
 
