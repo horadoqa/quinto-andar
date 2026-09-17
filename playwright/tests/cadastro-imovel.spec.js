@@ -27,11 +27,6 @@ test('FORM-002 - não deve avançar com campos obrigatórios vazios', async ({ p
 
   await cadastro.clicarComecarCadastro();
 
-  // await expect(cadastro.mensagemCepObrigatorio).toBeVisible();
-  // await expect(cadastro.mensagemNomeObrigatorio).toBeVisible();
-  // await expect(cadastro.mensagemAreaObrigatorio).toBeVisible();
-  // await expect(cadastro.mensagemTelefoneObrigatorio).toBeVisible();
-
   await cadastro.validarCamposObrigatorios();
 });
 
